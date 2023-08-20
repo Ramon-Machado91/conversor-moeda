@@ -1,4 +1,4 @@
-const urlBitcoin = "https://economia.awesomeapi.com.br/last/BTC-BRL"
+const urlBitcoin = "https://economia.awesomeapi.com.br/last/BTC-BRL";
 const urlDolar = "https://economia.awesomeapi.com.br/last/USD-BRL";
 const urlEuro = "https://economia.awesomeapi.com.br/last/EUR-BRL";
 
@@ -6,59 +6,53 @@ var select = document.getElementById("converterUnity");
 var opcaoValor = select.options[select.selectedIndex].value;
 
 function converter() {
-if(select.value === "dolar"){
-cotacaoDolar();
-}
-if(select.value === "euro"){
+  if (select.value === "dolar") {
+    cotacaoDolar();
+  }
+  if (select.value === "euro") {
     cotacaoEuro();
-    }
+  }
 
-if(select.value === "bitcoin"){
+  if (select.value === "bitcoin") {
     cotacaoBitcoin();
-    }
+  }
 
-}
-
-async function cotacaoBitcoin(){
+  async function cotacaoBitcoin() {
     const response = await fetch(urlBitcoin);
     const data = await response.json();
 
-    console.log(data)
-    
+    console.log(data);
+
     const cotacaoBitcoinDaily = data.BTCBRL.ask;
     const valorAConverter = document.getElementById("valor-converter");
-    const valorConvertido = parseInt(valorAConverter.value) / cotacaoBitcoinDaily;
+    const valorConvertido =
+      parseInt(valorAConverter.value) / cotacaoBitcoinDaily;
     const mensagem = document.getElementById("msgValor");
     mensagem.innerHTML = `O valor pela cotação atual é de ₿ ${valorConvertido} Bitcoins`;
+  }
 
-}
+  cotacaoBitcoin();
 
-cotacaoBitcoin()
+  async function cotacaoDolar() {
+    const response = await fetch(urlDolar);
+    const data = await response.json();
 
-async function cotacaoDolar() {
-  const response = await fetch(urlDolar);
-  const data = await response.json();
+    const cotacaoDolarDaily = data.USDBRL.ask;
+    const valorAConverter = document.getElementById("valor-converter");
+    const valorConvertido = parseInt(valorAConverter.value) / cotacaoDolarDaily;
 
-  const cotacaoDolarDaily = data.USDBRL.ask;
-  const valorAConverter = document.getElementById("valor-converter");
-  const valorConvertido = parseInt(valorAConverter.value) / cotacaoDolarDaily;
+    const mensagem = document.getElementById("msgValor");
+    mensagem.innerHTML = `O valor pela cotação atual é de U$$ ${valorConvertido} dólares`;
+  }
 
-  const mensagem = document.getElementById("msgValor");
-  mensagem.innerHTML = `O valor pela cotação atual é de U$$ ${valorConvertido} dólares`;
-}
-
-async function cotacaoEuro(){
+  async function cotacaoEuro() {
     const response = await fetch(urlEuro);
     const data = await response.json();
-    
+
     const cotacaoEuroDaily = data.EURBRL.ask;
     const valorAConverter = document.getElementById("valor-converter");
     const valorConvertido = parseInt(valorAConverter.value) / cotacaoEuroDaily;
     const mensagem = document.getElementById("msgValor");
     mensagem.innerHTML = `O valor pela cotação atual é de € ${valorConvertido} Euros`;
-
+  }
 }
-
-
-
-
