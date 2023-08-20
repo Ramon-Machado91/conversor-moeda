@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Interactive Currency Converter 
 
 Link para a solução no Git Hub Pages 
