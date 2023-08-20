@@ -33,8 +33,6 @@ async function cotacaoBitcoin(){
 
 }
 
-cotacaoBitcoin()
-
 async function cotacaoDolar() {
   const response = await fetch(urlDolar);
   const data = await response.json();
