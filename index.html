@@ -27,7 +27,8 @@
                 
             </div>
             <div class="inputBox">
-                <input type="text" required="required" name="valorConverter" id="valor-converter">
+                <input type="text" required="required" name="valorConverter" id="valor-converter"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                 <span>Digite o Valor em (R$) a ser Convertido</span>
             </div>
             
