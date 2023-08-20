@@ -83,6 +83,7 @@ body{
 .box form h2{
     text-align: center;
     letter-spacing: 0.1em;
+    transform: translateY(-20px);
 }
 
 .box form .inputBox{
