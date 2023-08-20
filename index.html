@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moeda</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="box">
+        <form>
+            <h2><i class="fa-solid fa-circle-dollar-to-slot"></i> Conversor de Moeda</h2>
+
+            <div class="valorConvertido" id="msgValor" ></div>
+            <div class="inputBox">
+                <select name="converter-field" id="converterUnity">
+                    <option value="bitcoin">Bitcoin</option>
+                    <option value="dolar">Dolar</option>
+                    <option value="euro">Euro</option>
+                </select>
+                
+            </div>
+            <div class="inputBox">
+                <input type="text" required="required" name="valorConverter" id="valor-converter">
+                <span>Digite o Valor em (R$) a ser Convertido</span>
+            </div>
+            
+            <input onclick="converter()" type="button" id="converterButton" value="Converter">
+        </form>
+
+        
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

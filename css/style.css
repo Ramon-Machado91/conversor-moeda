@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blue-primary:#3BF1F4;
+    --primary-black-background:#23242a;
+    --secondary-black-background:#1c1c1c;
+    --text-shadow-pattern:0 0 0.125em rgba(0, 0, 0, 0.5), 0 0 0.25em currentColor;
+    --box-shadow-pattern: inset 0 0 0.5em 0 var(--blue-primary), 0 0 0.5em 0 var(--blue-primary);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:var(--primary-black-background);
+    color: var(--blue-primary);
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: var(--text-shadow-pattern);
+    box-shadow:var(--box-shadow-pattern);
+}
+
+.box{
+    position: relative;
+    width: 380px;
+    height: 450px;
+    background-color: var(--secondary-black-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.box h2 i{
+    font-size: 2em;
+}
+
+.box::before{
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 420px;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(0deg,transparent,transparent,var(--blue-primary),var(--blue-primary),var(--blue-primary));
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animar 6s linear infinite;
+}
+
+.box::after{
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 420px;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(0deg,transparent,transparent,var(--blue-primary),var(--blue-primary),var(--blue-primary));
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animar 6s linear infinite;
+    animation-delay: -3s;
+}   
+
+.box form{
+    position: absolute;
+    inset: 4px;
+    background: #222;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.box .valorConvertido{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.box form h2{
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.box form .inputBox{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.box form .inputBox select,
+.box form .inputBox input{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    text-align: center;
+    box-shadow: none;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+    border:solid var(--blue-primary) 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--secondary-black-background);
+    color: var(--blue-primary);
+    text-shadow: var(--text-shadow-pattern);
+}
+
+.box form .inputBox span{
+    left: 0;
+    padding: 20px 0px 10px;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    text-shadow: var(--text-shadow-pattern);
+}
+
+.box form input[type="button"]{
+    border: solid var(--blue-primary) 2px;
+    outline: none;
+    padding: 9px 25px;
+    background-color: var(--secondary-black-background);
+    border-radius: 10px;
+    color: var(--blue-primary);
+    text-shadow: var(--text-shadow-pattern);
+    box-shadow: var(--box-shadow-pattern);
+    transition: 0.5s;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.box form input[type="button"]:hover{
+    border: solid #fff 2px;
+    color: #ffff;
+}
+
+
+
+
+@keyframes animar{
+    0%{
+        transform: scale(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
