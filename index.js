@@ -4,8 +4,15 @@ const urlEuro = "https://economia.awesomeapi.com.br/last/EUR-BRL";
 
 var select = document.getElementById("converterUnity");
 var opcaoValor = select.options[select.selectedIndex].value;
+const mensagem = document.getElementById("msgValor");
+    
 
 function converter() {
+
+if(select.value ===""){
+mensagem.innerHTML = `Selecione uma unidade e digite um valor em (R$) a ser convertido`;
+}
+
 if(select.value === "dolar"){
 cotacaoDolar();
 }
